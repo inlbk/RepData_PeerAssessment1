@@ -3,7 +3,9 @@ inlbk
 March 28 , 2017  
 
 
+
 ##Overview
+
 
 It is now possible to collect a large amount of data about personal movement using activity monitoring devices such as a Fitbit, Nike Fuelband, or Jawbone Up. These type of devices are part of the “quantified self” movement – a group of enthusiasts who take measurements about themselves regularly to improve their health, to find patterns in their behavior, or because they are tech geeks. But these data remain under-utilized, both because the raw data are hard to obtain and because there is a lack of statistical methods and software for processing and interpreting the data.
 
@@ -31,8 +33,6 @@ The analysis addresses the following questions:
 
 ## Loading and preprocessing the data
 
-###Load R Packages
-
 
 ```r
 # Load packages and set random number seed.
@@ -44,7 +44,7 @@ library(lattice)
 set.seed(5678)
 options(scipen=10, digits=2)
 ```
-###Get the Data
+
 The data, located at the following URL, is downloaded and read, and the date on which the download occurred is recorded.
 
 
@@ -76,8 +76,6 @@ names(rawsteps)
 ## [1] "steps"    "date"     "interval"
 ```
 
-###Clean and Preprocess the Data
-
 The date field is converted to standard date format, and the total number of unique days is determined.   There are 61 unique dates in the dataset, which is as expected (October has 31 days and November has 30 days). Thus each date is represented in the dataset. Furthermore, there are 17,568 observations in all, which is consistent with 61 days of observations and 288 observations per day (24*60 minutes per day / 5 minutes per interval), hence there are no missing rows. 
 
 ```r
@@ -91,6 +89,7 @@ length(unique(rawsteps$date))   #Number of unique dates in the dataset
 ```
 
 ##What is the mean total number of steps taken per day?
+
 To determine the average steps taken per day, the data is aggregated by date. The resulting tallies show that there are eight days with no data (October 1 and 8; November 1, 4, 9, 10, 14, and 30). There is also a wide range of daily steps, including 126 steps on October 2, 41 steps on November 15, and 21,194 steps on November 23.  Since it is unlikely that a person could only take 41 or 126 steps in a 24-hour period, a follow-up investigation to determine whether on some days the number of steps taken was not accurately recorded is recommended.
 
 

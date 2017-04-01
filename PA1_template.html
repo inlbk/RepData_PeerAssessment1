@@ -146,8 +146,6 @@ $(document).ready(function () {
 </div>
 <div id="loading-and-preprocessing-the-data" class="section level2">
 <h2>Loading and preprocessing the data</h2>
-<div id="load-r-packages" class="section level3">
-<h3>Load R Packages</h3>
 <pre class="r"><code># Load packages and set random number seed.
 library(plyr)
 library(dplyr)
@@ -156,9 +154,6 @@ library(Hmisc)
 library(lattice)
 set.seed(5678)
 options(scipen=10, digits=2)</code></pre>
-</div>
-<div id="get-the-data" class="section level3">
-<h3>Get the Data</h3>
 <p>The data, located at the following URL, is downloaded and read, and the date on which the download occurred is recorded.</p>
 <pre class="r"><code># Download the zip file and read in the data.
 fileUrl&lt;- &quot;https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip&quot;
@@ -176,15 +171,11 @@ dim(rawsteps)</code></pre>
 <pre><code>## [1] 17568     3</code></pre>
 <pre class="r"><code>names(rawsteps)</code></pre>
 <pre><code>## [1] &quot;steps&quot;    &quot;date&quot;     &quot;interval&quot;</code></pre>
-</div>
-<div id="clean-and-preprocess-the-data" class="section level3">
-<h3>Clean and Preprocess the Data</h3>
 <p>The date field is converted to standard date format, and the total number of unique days is determined. There are 61 unique dates in the dataset, which is as expected (October has 31 days and November has 30 days). Thus each date is represented in the dataset. Furthermore, there are 17,568 observations in all, which is consistent with 61 days of observations and 288 observations per day (24*60 minutes per day / 5 minutes per interval), hence there are no missing rows.</p>
 <pre class="r"><code># Change date field to standard date format.
 rawsteps[,2] &lt;- as.Date(rawsteps[,2])
 length(unique(rawsteps$date))   #Number of unique dates in the dataset</code></pre>
 <pre><code>## [1] 61</code></pre>
-</div>
 </div>
 <div id="what-is-the-mean-total-number-of-steps-taken-per-day" class="section level2">
 <h2>What is the mean total number of steps taken per day?</h2>
